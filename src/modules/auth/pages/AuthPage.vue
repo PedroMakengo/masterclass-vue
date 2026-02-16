@@ -1,15 +1,25 @@
 <script lang="ts" setup>
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 //Components
 import Loading from '@/shared/components/Loding.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()
+const route = useRoute()
 
 async function handleLogin() {
   await authStore.login('devmakengo2021@gmail.com', '123456')
-  router.push({ name: 'Home' })
+  redirect()
+}
+
+async function redirect() {
+  const query = route.query.redirect as string
+
+  const result =
+    typeof query === 'string' && query.startsWith('/') ? query : '/'
+
+  await router.replace(result)
 }
 </script>
 

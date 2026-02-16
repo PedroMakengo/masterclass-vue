@@ -20,7 +20,6 @@ router.beforeEach(async (to) => {
 
   if (authStore.isAuthenticated && to.name === 'Auth') {
     const redirect = (to.query.redirect as string) ?? { name: 'Home' }
-
     return redirect
   }
 })
