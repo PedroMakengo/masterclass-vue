@@ -5,7 +5,8 @@ import MenuItem from './MenuItem.vue'
 <template>
   <nav class="flex flex-col">
     <menu-item to="/" label="Início" />
-    <menu-item to="/counter" label="Contador" />
+    <menu-item to="/counter" label="Contador #1" />
+    <menu-item to="/counter/pinia" label="Contador #2" />
   </nav>
 </template>
 
