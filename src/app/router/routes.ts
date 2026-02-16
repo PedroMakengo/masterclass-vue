@@ -7,22 +7,27 @@ import CounterPiniaPage from '@/modules/sample/pages/CounterPiniaPage.vue'
 
 export const routes: RouteRecordRaw[] = [
   {
+    name: 'Auth',
     path: '/auth',
     component: AuthPage,
   },
   {
     path: '/',
     component: AppLayout,
+    meta: { requiresAuth: true },
     children: [
       {
+        name: 'Home',
         path: '',
         component: HomePage,
       },
       {
+        name: 'Counter',
         path: 'counter',
         component: CounterPage,
       },
       {
+        name: 'CounterPinia',
         path: 'counter/pinia',
         component: CounterPiniaPage,
       },
